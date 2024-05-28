@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="windows-1252">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div>TODO write content</div>
+        <form th:action="@{/Teacher/update/{index}(index=${index})}" method="POST">
+            NAME: <input type="text" name="name" th:value="${teacher.name}"><br>
+            EMAIL <input type="text" name="email" th:value="${teacher.email}"><br>
+            YEARBIRTH: <input type="text" name="yearBirth" th:value="${teacher.yearBirth}"><br>
+            SALARY: <input type="text" name="salary" th:value="${teacher.salary}"><br>
+            HOUR: <input type="text" name="hour" th:value="${teacher.hour}"><br>
+            <button>Sửa</button>
+        </form>
+    </body>
+</html>

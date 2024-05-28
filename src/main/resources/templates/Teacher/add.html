@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="windows-1252">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div>TODO write content</div>
+        <form action="/Teacher/create" method="POST">
+            NAME: <input type="text" name="name"><br>
+            <div th:if="${errors != null and errors['name']!=null}" th:style="'color:red'">
+                <small th:text="${errors['name']}"></small>
+            </div>
+            EMAIL: <input type="text" name="email"><br>
+            <div th:if="${errors != null and errors['email']!=null}" th:style="'color:red'">
+                <small th:text="${errors['email']}"></small>
+            </div>
+            YEARBIRTH: <input type="number" name="yearBirth"><br>
+            <div th:if="${errors != null and errors['yearBirth'] != null}" th:style="'color:red'">
+                <small th:text="${errors['yearBirth']}"></small>
+            </div>
+            SALARY: <input type="number" name="salary"><br>
+            <div th:if="${errors != null and errors['salary']!=null}" th:style="'color:red'">
+                <small th:text="${errors['salary']}"></small>
+            </div>
+            HOUR: <input type="number" name="hour"><br>
+            <div th:if="${errors != null and errors['hour']!=null}" th:style="'color:red'">
+                <small th:text="${errors['hour']}"></small>
+            </div>
+            <button>Thêm</button>
+        </form>
+
+
+    </body>
+</html>

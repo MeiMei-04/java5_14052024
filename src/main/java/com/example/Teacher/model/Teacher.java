@@ -4,6 +4,9 @@
  */
 package com.example.Teacher.model;
 
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
 import java.io.Serializable;
 
 /**
@@ -11,10 +14,16 @@ import java.io.Serializable;
  * @author HieuCute
  */
 public class Teacher implements Serializable{
+    @NotBlank(message = "Not NULL")
     private String name;
+    @NotBlank(message = "Not NULL")
     private String email;
+    @Min(value = 1, message = "Min 0")
     private int yearBirth;
+    @Min(value = 1, message = "Min 0")   
     private int salary;
+    @Min(value = 0, message = "Hour must be greater than or equal to 0")
+    @Max(value = 23, message = "Hour must be less than or equal to 23")
     private int hour;
 
     public Teacher() {

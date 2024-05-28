@@ -10,6 +10,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
+         <a href="/Teacher/add">Thêm</a>
         <table border="1">
             <thead>
                 <tr>
@@ -19,16 +20,22 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                     <th>AGE</th>
                     <th>TOTALSALARY</th>
                     <th>STATUS</th>
+                    <th>Chức năng</th>
                 </tr>
             </thead>
             <tbody>
-                <tr th:each="x,index: ${Teachers}" th:style="${x.hour} < 5 ?'background-color: red':'background-color: blue'">
+                <tr th:each="x,index: ${Teachers}" th:style="${x.hour} < 5 ?'color: red':'color: blue'">
                     <td th:text="${index.index}+1"></td>
                     <td th:text="${x.name}"></td>
                     <td th:text="${x.email}"></td>
                     <td th:text="${#dates.year(#dates.createNow())}-${x.yearBirth}"></td>
                     <td th:text="${x.salary}+${x.hour}"></td>
                     <td th:text="${x.hour}<5?'Không Đủ Giờ Dạy':'Đủ Giờ Dạy'"></td>
+                    <td>
+                       
+                        <a th:href="@{/Teacher/edit/{index}(index=${index.index})}">Sửa</a>
+                        <a th:href="@{/Teacher/delete/{index}(index=${index.index})}">Xóa</a>
+                    </td>
                 </tr>
             </tbody>
         </table>
