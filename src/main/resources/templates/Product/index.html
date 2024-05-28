@@ -1,45 +1,36 @@
 <!DOCTYPE html>
-<!--
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
--->
-<html>
-    <head>
-        <title>Product List</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <!-- Bootstrap CSS -->
-        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    </head>
-    <body class="container">
-        <div class="container mt-5">
-            <h2 class="mb-4">Product List</h2>
-            <table class="table table-bordered">
-                <thead class="thead-dark">
-                    <tr>
-                        <th>ID</th>
-                        <th>NAME</th>
-                        <th>PRICE</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr th:each="x : ${products}">
-                        <td th:text="${x.id}+1"></td>
-                        <td th:text="${x.name}"></td>
-                        <td th:text="${x.price}"></td>
-<!--                    <td>
-                        <a href="/Teacher/add">Thêm</a>
-                        <a th:href="@{/Teacher/edit/{index}(index=${index.index})}">Sửa</a>
-                        <a th:href="@{/Teacher/delete/{index}(index=${index.index})}">Xóa</a>
-                    </td>-->
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <!-- Bootstrap JS and dependencies -->
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    </body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product List</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="my-4">Product List</h1>
+        <a href="/product/add" class="btn btn-primary mb-4">Add Product</a>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="product : ${products}">
+                    <td th:text="${product.id}">1</td>
+                    <td th:text="${product.name}">Product Name</td>
+                    <td th:text="${product.price}">100.00</td>
+                    <td>
+                        <a th:href="@{/product/edit/{id}(id=${product.id})}" class="btn btn-warning btn-sm">Edit</a>
+                        <a th:href="@{/product/delete/{id}(id=${product.id})}" class="btn btn-danger btn-sm">Delete</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
 </html>
